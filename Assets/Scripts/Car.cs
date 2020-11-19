@@ -102,7 +102,7 @@ public class Car : MonoBehaviour
             wheelColliderLeftFront.brakeTorque = brakeTorque;
             wheelColliderRightFront.brakeTorque = brakeTorque;
         }
-        Debug.Log(wheelColliderRightRear.brakeTorque);
+        // Debug.Log(wheelColliderRightRear.brakeTorque);
     }
 
     private void FrontWheelRotate(){

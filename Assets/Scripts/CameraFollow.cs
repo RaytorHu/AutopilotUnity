@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform followObject;
-    public Vector3 offset;
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = followObject.position + offset;
-    }
+     public Transform target;
+ 
+     public Vector3 offsetPosition;
+ 
+     [Range(0,20)]public float smothTime = 5;
+ 
+ 
+     private void FixedUpdate()
+     {
+         transform.position = Vector3.Lerp(transform.position, target.TransformPoint(offsetPosition), smothTime * Time.deltaTime);
+ 
+        transform.LookAt(target);
+     }
 }
