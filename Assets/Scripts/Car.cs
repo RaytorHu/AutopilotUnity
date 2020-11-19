@@ -16,7 +16,9 @@ public class Car : MonoBehaviour
     public Transform wheelLeftRear;
     public Transform wheelRightRear;
 
-    public float motorTorque = 100f;
+    public float motorTorque = 300f;
+    public float brakeTorque = 450f;
+    public float decelerationForce = 50f;
     public float maxSteerAngle = 20f;
     private Rigidbody _rigidbody;
 
@@ -28,11 +30,9 @@ public class Car : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Debug.Log(Input.GetAxis("Vertical"));
-        wheelColliderLeftRear.motorTorque = Input.GetAxis("Vertical") * motorTorque;
-        wheelColliderRightRear.motorTorque = Input.GetAxis("Vertical") * motorTorque;
-        wheelColliderLeftFront.steerAngle = Input.GetAxis("Horizontal") * maxSteerAngle;
-        wheelColliderRightFront.steerAngle = Input.GetAxis("Horizontal") * maxSteerAngle;
+        Accleration(Input.GetAxis("Vertical"));
+        Break();
+        FrontWheelRotate();
     }
 
     void Update()
@@ -55,5 +55,58 @@ public class Car : MonoBehaviour
         wheelColliderRightRear.GetWorldPose(out position, out rotation);
         wheelRightRear.position = position;
         wheelRightRear.rotation = rotation;
+    }
+
+    private void Accleration(float verticalInput){
+        if(verticalInput != 0f){
+            wheelColliderLeftRear.motorTorque = verticalInput * motorTorque;
+            wheelColliderRightRear.motorTorque = verticalInput * motorTorque;
+            wheelColliderLeftRear.brakeTorque = 0;
+            wheelColliderRightRear.brakeTorque = 0;
+            wheelColliderLeftFront.brakeTorque = 0;
+            wheelColliderRightFront.brakeTorque = 0;
+        }
+        else{
+            wheelColliderLeftRear.brakeTorque = decelerationForce;
+            wheelColliderRightRear.brakeTorque = decelerationForce;
+            wheelColliderLeftFront.brakeTorque = decelerationForce;
+            wheelColliderRightFront.brakeTorque = decelerationForce;
+        }
+        // Debug.Log(wheelColliderRightRear.brakeTorque);
+
+
+        // if(verticalInput > 0f){
+        //     wheelColliderLeftRear.motorTorque = verticalInput * motorTorque;
+        //     wheelColliderRightRear.motorTorque = verticalInput * motorTorque;
+        // }
+        // else if(verticalInput < 0f){
+        //     wheelColliderLeftRear.motorTorque = verticalInput * brakeTorque;
+        //     wheelColliderRightRear.motorTorque = verticalInput * brakeTorque;           
+        // }
+        // else{
+        //     wheelColliderLeftRear.motorTorque = 0;
+        //     wheelColliderRightRear.motorTorque = 0;
+        //     // wheelColliderLeftRear.brakeTorque = - verticalInput * brakeTorque;
+        //     // wheelColliderRightRear.brakeTorque = - verticalInput * brakeTorque;
+        //     // wheelColliderLeftFront.brakeTorque = - verticalInput * brakeTorque;
+        //     // wheelColliderRightFront.brakeTorque = - verticalInput * brakeTorque;
+        //     // Debug.Log(wheelColliderLeftRear.brakeTorque);
+        // }
+
+    }
+
+    private void Break(){
+        if(Input.GetKey(KeyCode.Space)){
+            wheelColliderLeftRear.brakeTorque = brakeTorque;
+            wheelColliderRightRear.brakeTorque = brakeTorque;
+            wheelColliderLeftFront.brakeTorque = brakeTorque;
+            wheelColliderRightFront.brakeTorque = brakeTorque;
+        }
+        Debug.Log(wheelColliderRightRear.brakeTorque);
+    }
+
+    private void FrontWheelRotate(){
+        wheelColliderLeftFront.steerAngle = Input.GetAxis("Horizontal") * maxSteerAngle;
+        wheelColliderRightFront.steerAngle = Input.GetAxis("Horizontal") * maxSteerAngle;
     }
 }

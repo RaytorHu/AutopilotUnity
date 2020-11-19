@@ -3858,17 +3858,17 @@ PrefabInstance:
     - target: {fileID: 8168585843839728882, guid: 77d59c141207a58479c415fb76f7aa68,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.78
+      value: 43.51
       objectReference: {fileID: 0}
     - target: {fileID: 8168585843839728882, guid: 77d59c141207a58479c415fb76f7aa68,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.21
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 8168585843839728882, guid: 77d59c141207a58479c415fb76f7aa68,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.87
+      value: 33.95
       objectReference: {fileID: 0}
     - target: {fileID: 8168585843839728882, guid: 77d59c141207a58479c415fb76f7aa68,
         type: 3}
@@ -3910,10 +3910,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8168585843839728883, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 8168585843839728884, guid: 77d59c141207a58479c415fb76f7aa68,
         type: 3}
       propertyPath: m_Name
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168585843839728885, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: brakeTorque
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168585843839728885, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: motorTorque
+      value: 400
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77d59c141207a58479c415fb76f7aa68, type: 3}
