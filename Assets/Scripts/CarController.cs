@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Car : MonoBehaviour
+public class CarController : MonoBehaviour
 {
     public Transform centerOfMass;
+
+    public Rigidbody body;
 
     public WheelCollider wheelColliderLeftFront;
     public WheelCollider wheelColliderRightFront;
@@ -20,6 +22,7 @@ public class Car : MonoBehaviour
     public float brakeTorque = 450f;
     public float decelerationForce = 50f;
     public float maxSteerAngle = 20f;
+    public float downForceCoefficient = 2.5f;
     private Rigidbody _rigidbody;
 
     void Start()
@@ -33,6 +36,7 @@ public class Car : MonoBehaviour
         Accleration(Input.GetAxis("Vertical"));
         Break();
         FrontWheelRotate();
+        AddDownForce();
     }
 
     void Update()
@@ -108,5 +112,10 @@ public class Car : MonoBehaviour
     private void FrontWheelRotate(){
         wheelColliderLeftFront.steerAngle = Input.GetAxis("Horizontal") * maxSteerAngle;
         wheelColliderRightFront.steerAngle = Input.GetAxis("Horizontal") * maxSteerAngle;
+    }
+
+    private void AddDownForce(){
+        float force = downForceCoefficient * body.velocity.sqrMagnitude;
+        body.AddForce(-force * transform.up);
     }
 }

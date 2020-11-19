@@ -1327,6 +1327,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 354415666}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &372812996 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8168585843839728883, guid: 77d59c141207a58479c415fb76f7aa68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1106045222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &390856563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7817548484833178433, guid: dd90d086419000348871c2a99b27a50a,
@@ -4014,6 +4020,11 @@ PrefabInstance:
       propertyPath: motorTorque
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 8168585843839728885, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 372812996}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77d59c141207a58479c415fb76f7aa68, type: 3}
 --- !u!1001 &1119415163
