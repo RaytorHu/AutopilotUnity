@@ -6,8 +6,6 @@ public class CarController : MonoBehaviour
 {
     public Transform centerOfMass;
 
-    public Rigidbody body;
-
     public WheelCollider wheelColliderLeftFront;
     public WheelCollider wheelColliderRightFront;
     public WheelCollider wheelColliderLeftRear;
@@ -23,19 +21,20 @@ public class CarController : MonoBehaviour
     public float decelerationForce = 50f;
     public float maxSteerAngle = 20f;
     public float downForceCoefficient = 2.5f;
-    private Rigidbody _rigidbody;
+    public Rigidbody body;
+    public Vector3 respawnPosition;
 
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-        _rigidbody.centerOfMass = centerOfMass.localPosition;
+        body = GetComponent<Rigidbody>();
+        body.centerOfMass = centerOfMass.localPosition;
     }
 
     void FixedUpdate()
     {
-        Accleration(Input.GetAxis("Vertical"));
-        Break();
-        FrontWheelRotate();
+        // Accleration();
+        // Steering();
+        // Break();
         AddDownForce();
     }
 
@@ -61,7 +60,10 @@ public class CarController : MonoBehaviour
         wheelRightRear.rotation = rotation;
     }
 
-    private void Accleration(float verticalInput){
+    // Car action
+    public void Accleration(float verticalInput)
+    {
+        // float verticalInput = Input.GetAxis("Vertical");
         if(verticalInput != 0f){
             wheelColliderLeftRear.motorTorque = verticalInput * motorTorque;
             wheelColliderRightRear.motorTorque = verticalInput * motorTorque;
@@ -78,28 +80,10 @@ public class CarController : MonoBehaviour
         }
         // Debug.Log(wheelColliderRightRear.brakeTorque);
 
-
-        // if(verticalInput > 0f){
-        //     wheelColliderLeftRear.motorTorque = verticalInput * motorTorque;
-        //     wheelColliderRightRear.motorTorque = verticalInput * motorTorque;
-        // }
-        // else if(verticalInput < 0f){
-        //     wheelColliderLeftRear.motorTorque = verticalInput * brakeTorque;
-        //     wheelColliderRightRear.motorTorque = verticalInput * brakeTorque;           
-        // }
-        // else{
-        //     wheelColliderLeftRear.motorTorque = 0;
-        //     wheelColliderRightRear.motorTorque = 0;
-        //     // wheelColliderLeftRear.brakeTorque = - verticalInput * brakeTorque;
-        //     // wheelColliderRightRear.brakeTorque = - verticalInput * brakeTorque;
-        //     // wheelColliderLeftFront.brakeTorque = - verticalInput * brakeTorque;
-        //     // wheelColliderRightFront.brakeTorque = - verticalInput * brakeTorque;
-        //     // Debug.Log(wheelColliderLeftRear.brakeTorque);
-        // }
-
     }
 
-    private void Break(){
+    public void Break()
+    {
         if(Input.GetKey(KeyCode.Space)){
             wheelColliderLeftRear.brakeTorque = brakeTorque;
             wheelColliderRightRear.brakeTorque = brakeTorque;
@@ -109,13 +93,29 @@ public class CarController : MonoBehaviour
         // Debug.Log(wheelColliderRightRear.brakeTorque);
     }
 
-    private void FrontWheelRotate(){
-        wheelColliderLeftFront.steerAngle = Input.GetAxis("Horizontal") * maxSteerAngle;
-        wheelColliderRightFront.steerAngle = Input.GetAxis("Horizontal") * maxSteerAngle;
+    public void Steering(float horizontalInput)
+    {
+        wheelColliderLeftFront.steerAngle = horizontalInput * maxSteerAngle;
+        wheelColliderRightFront.steerAngle = horizontalInput * maxSteerAngle;
     }
 
-    private void AddDownForce(){
+    private void AddDownForce()
+    {
         float force = downForceCoefficient * body.velocity.sqrMagnitude;
         body.AddForce(-force * transform.up);
     }
+
+    public void Respawn()
+    {
+        body.MovePosition(respawnPosition);
+        transform.position = respawnPosition;
+    }
+
+    public float LocalSpeed()
+    {
+        float dot = Vector3.Dot(transform.forward, body.velocity);
+        float speed = body.velocity.magnitude;
+        return dot < 0 ? -speed : speed;
+    }
+
 }
