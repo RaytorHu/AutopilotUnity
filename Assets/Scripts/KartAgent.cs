@@ -22,6 +22,13 @@ public class KartAgent : Agent
         _carController.Respawn();
     }
 
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        Vector3 diff = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
+        sensor.AddObservation(diff / 20f); // no checkpoint should be further than 20
+        AddReward(-0.001f);
+    }
+
     public override void OnActionReceived(ActionBuffers actions)
     {
         var input = actions.ContinuousActions;
