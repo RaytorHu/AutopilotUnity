@@ -3945,6 +3945,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8168585843656587750, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168585843656587750, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8168585843839728882, guid: 77d59c141207a58479c415fb76f7aa68,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4013,18 +4023,53 @@ PrefabInstance:
     - target: {fileID: 8168585843839728885, guid: 77d59c141207a58479c415fb76f7aa68,
         type: 3}
       propertyPath: brakeTorque
-      value: 450
+      value: 850
       objectReference: {fileID: 0}
     - target: {fileID: 8168585843839728885, guid: 77d59c141207a58479c415fb76f7aa68,
         type: 3}
       propertyPath: motorTorque
-      value: 400
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 8168585843839728885, guid: 77d59c141207a58479c415fb76f7aa68,
         type: 3}
       propertyPath: body
       value: 
       objectReference: {fileID: 372812996}
+    - target: {fileID: 8168585843839728885, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: downForceCoefficient
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168585844171074379, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168585844171074379, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168585844482944368, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168585844482944368, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168585844700514011, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8168585844700514011, guid: 77d59c141207a58479c415fb76f7aa68,
+        type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77d59c141207a58479c415fb76f7aa68, type: 3}
 --- !u!1001 &1119415163
