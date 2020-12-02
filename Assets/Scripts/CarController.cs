@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CarController : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class CarController : MonoBehaviour
     public Rigidbody body;
     public Vector3 respawnPosition;
 
+    public Text text;
+
     void Start()
     {
         body = GetComponent<Rigidbody>();
@@ -45,6 +48,9 @@ public class CarController : MonoBehaviour
             resetCar();
             return;
         }
+
+        int speed = (int)(body.velocity.magnitude * 5);
+        text.text = "Speed: " + speed + " KPH";
 
         var position = Vector3.zero;
         var rotation = Quaternion.identity;
@@ -173,7 +179,7 @@ public class CarController : MonoBehaviour
 
     private bool cannotRecover()
     {
-        if (body.transform.position.y < -10.0f)
+        if (body.transform.position.y < -10.0f || body.transform.position.y > 100.0f)
         {
             return true;
         }
