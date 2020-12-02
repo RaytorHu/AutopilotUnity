@@ -40,6 +40,12 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
+        if (cannotRecover())
+        {
+            resetCar();
+            return;
+        }
+
         var position = Vector3.zero;
         var rotation = Quaternion.identity;
 
@@ -163,5 +169,21 @@ public class CarController : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         obj.SetActive(true);
+    }
+
+    private bool cannotRecover()
+    {
+        if (body.transform.position.y < -10.0f)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private void resetCar()
+    {
+        body.position = new Vector3(43.5f, 1.0f, 32.0f);
+        body.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+        body.velocity = new Vector3(0.0f, 0.0f, 0.0f);
     }
 }
