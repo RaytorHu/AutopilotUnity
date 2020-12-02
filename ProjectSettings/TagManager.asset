@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ItemPositive
   - ItemNegative
+  - ItemExplode
   layers:
   - Default
   - TransparentFX

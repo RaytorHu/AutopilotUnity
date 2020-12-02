@@ -138,5 +138,30 @@ public class CarController : MonoBehaviour
         {
             body.AddForce(-body.transform.forward * 500000.0f);
         }
+
+        if (other.tag == "ItemExplode")
+        {
+            //body.AddForce(body.transform.up * 100000.0f, ForceMode.Impulse);
+            body.AddForce(body.transform.up * 200.0f, ForceMode.VelocityChange);
+        }
+
+        other.gameObject.SetActive(false);
+        reactivateGameObject(other.gameObject);
+        //Invoke("reactivateGameObject")
+        StartCoroutine(reactivateGameObject(other.gameObject));
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "ItemExplode")
+        {
+            body.AddForce(body.transform.up * 1500000.0f);
+        }
+    }
+
+    IEnumerator reactivateGameObject(GameObject obj)
+    {
+        yield return new WaitForSeconds(5);
+        obj.SetActive(true);
     }
 }
