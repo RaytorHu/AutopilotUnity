@@ -16,11 +16,11 @@ public class CarController : MonoBehaviour
     public Transform wheelLeftRear;
     public Transform wheelRightRear;
 
-    public float motorTorque = 300f;
-    public float brakeTorque = 450f;
-    public float decelerationForce = 50f;
-    public float maxSteerAngle = 20f;
-    public float downForceCoefficient = 2.5f;
+    public float motorTorque;
+    public float brakeTorque;
+    public float decelerationForce;
+    public float maxSteerAngle;
+    public float downForceCoefficient;
     public Rigidbody body;
     public Vector3 respawnPosition;
 
@@ -109,6 +109,7 @@ public class CarController : MonoBehaviour
     {
         body.MovePosition(respawnPosition);
         transform.position = respawnPosition;
+        transform.rotation = transform.rotation = Quaternion.identity;
     }
 
     public float LocalSpeed()
