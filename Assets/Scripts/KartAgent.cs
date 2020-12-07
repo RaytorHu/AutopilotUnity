@@ -42,6 +42,7 @@ public class KartAgent : Agent
         var action = actionsOut.ContinuousActions;
 
         action[0] = Input.GetAxis("Horizontal");
-        action[1] = Input.GetAxis("Vertical");
+        // action[1] = Input.GetAxis("Vertical");
+        action[1] = Input.GetKey(KeyCode.W) ? 1f : 0f;
     }
 }

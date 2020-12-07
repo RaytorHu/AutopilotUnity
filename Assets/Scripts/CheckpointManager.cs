@@ -51,19 +51,20 @@ public class CheckpointManager : MonoBehaviour
 
         if (CurrentCheckpointIndex >= Checkpoints.Count)
         {
-            kartAgent.AddReward(0.5f);
+            kartAgent.AddReward(10f);
             kartAgent.EndEpisode();
         }
         else
         {
-            kartAgent.AddReward((0.5f) / Checkpoints.Count);
+            // kartAgent.AddReward((0.5f) / Checkpoints.Count);
+            kartAgent.AddReward(1f);
             SetNextCheckpoint();
         }
     }
 
     private void SetNextCheckpoint()
     {
-        Debug.Log("error here");
+        // Debug.Log("Reach a checkpoint");
         if (Checkpoints != null && Checkpoints.Count > 0)
         {
             TimeLeft = MaxTimeToReachNextCheckpoint;

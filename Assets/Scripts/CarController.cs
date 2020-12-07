@@ -64,6 +64,7 @@ public class CarController : MonoBehaviour
     public void Accleration(float verticalInput)
     {
         // float verticalInput = Input.GetAxis("Vertical");
+        // verticalInput = -verticalInput;
         if(verticalInput != 0f){
             wheelColliderLeftRear.motorTorque = verticalInput * motorTorque;
             wheelColliderRightRear.motorTorque = verticalInput * motorTorque;
@@ -78,7 +79,7 @@ public class CarController : MonoBehaviour
             wheelColliderLeftFront.brakeTorque = decelerationForce;
             wheelColliderRightFront.brakeTorque = decelerationForce;
         }
-        // Debug.Log(wheelColliderRightRear.brakeTorque);
+        // Debug.Log(verticalInput);
 
     }
 
