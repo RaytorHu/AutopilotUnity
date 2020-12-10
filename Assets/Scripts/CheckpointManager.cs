@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
-    public float MaxTimeToReachNextCheckpoint = 30f;
-    public float TimeLeft = 30f;
+    public float MaxTimeToReachNextCheckpoint;
+    public float TimeLeft;
     
     public KartAgent kartAgent;
     public Checkpoint nextCheckPointToReach;
@@ -69,7 +69,6 @@ public class CheckpointManager : MonoBehaviour
         {
             TimeLeft = MaxTimeToReachNextCheckpoint;
             nextCheckPointToReach = Checkpoints[CurrentCheckpointIndex];
-            
         }
     }
 }

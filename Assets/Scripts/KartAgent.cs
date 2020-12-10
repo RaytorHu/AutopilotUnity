@@ -7,25 +7,26 @@ using UnityEngine;
 
 public class KartAgent : Agent
 {
-    private CarController _carController;
-    public CheckpointManager _checkpointManager;
+    private CarController carController;
+    public CheckpointManager checkpointManager;
 
     public override void Initialize()
     {
-        _carController = GetComponent<CarController>();
-        _checkpointManager.ResetCheckpoints();
+        carController = GetComponent<CarController>();
+        checkpointManager.ResetCheckpoints();
     }
 
     public override void OnEpisodeBegin()
     {
-        _checkpointManager.ResetCheckpoints();
-        _carController.Respawn();
+        checkpointManager.ResetCheckpoints();
+        carController.Respawn();
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        Vector3 diff = _checkpointManager.nextCheckPointToReach.transform.position - transform.position;
-        sensor.AddObservation(diff / 20f); // no checkpoint should be further than 20
+        // add one more sensor: distance to the next checkpoint
+        Vector3 diff = checkpointManager.nextCheckPointToReach.transform.position - transform.position;
+        sensor.AddObservation(diff / 20f);
         AddReward(-0.001f);
     }
 
@@ -33,8 +34,8 @@ public class KartAgent : Agent
     {
         var input = actions.ContinuousActions;
 
-        _carController.Steering(input[0]);
-        _carController.Accleration(input[1]);
+        carController.Steering(input[0]);
+        carController.Accleration(input[1]);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
