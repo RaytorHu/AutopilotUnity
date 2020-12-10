@@ -1,0 +1,23 @@
+{
+    "AutoPilot": {
+        "checkpoints": [
+            {
+                "steps": 57354,
+                "file_path": "results\\SingleAgent\\AutoPilot\\AutoPilot-57354.nn",
+                "reward": 4.096923516346858,
+                "creation_time": 1607562696.056318
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 57354,
+            "file_path": "results\\SingleAgent\\AutoPilot.nn",
+            "reward": 4.096923516346858,
+            "creation_time": 1607562696.056318
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.21.1",
+        "tensorflow_version": "2.3.1"
+    }
+}

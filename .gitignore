@@ -69,7 +69,6 @@ crashlytics-build.properties
 
 # mlagent environment
 /venv/*
-/results/*
 /Recordings/*
 
 # Temporary auto-generated Android Assets

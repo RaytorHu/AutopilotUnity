@@ -1,0 +1,29 @@
+{
+    "AutoPilot": {
+        "checkpoints": [
+            {
+                "steps": 499886,
+                "file_path": "results\\MultiAgents_NoDistance\\AutoPilot\\AutoPilot-499886.nn",
+                "reward": 6.416263505032188,
+                "creation_time": 1607561812.9744368
+            },
+            {
+                "steps": 515497,
+                "file_path": "results\\MultiAgents_NoDistance\\AutoPilot\\AutoPilot-515497.nn",
+                "reward": 6.024333847893609,
+                "creation_time": 1607561835.6954367
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 515497,
+            "file_path": "results\\MultiAgents_NoDistance\\AutoPilot.nn",
+            "reward": 6.024333847893609,
+            "creation_time": 1607561835.6954367
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.21.1",
+        "tensorflow_version": "2.3.1"
+    }
+}
