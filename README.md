@@ -65,7 +65,7 @@ Train the agents by letting them go clockwise. Based on the experiment above, pi
 
 Test the model by letting the agent go anticlockwise. In this case, the track is completely new to the agent. And, the agent can successfully complete a lap.
 
-<a href="https://youtu.be/dke58wgUoqI" target="_blank"><img src="https://github.com/RaytorHu/AutopilotUnity/blob/master/images/DEMO_Validation.png" /></a>
+<a href="https://youtu.be/zaAmhs66x5A" target="_blank"><img src="https://github.com/RaytorHu/AutopilotUnity/blob/master/images/DEMO_Validation.png" /></a>
 
 ## Reference
 Low Poly Racing
