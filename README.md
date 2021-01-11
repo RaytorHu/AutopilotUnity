@@ -68,3 +68,8 @@ Test the model by letting the agent go anticlockwise. In this case, the track is
 [![DEMO_Validation](https://github.com/RaytorHu/AutopilotUnity/blob/master/images/DEMO_Validation.png)](https://youtu.be/dke58wgUoqI)
 
 ## Reference
+Low Poly Racing
+https://www.youtube.com/watch?v=MkOGlTTvaWU&ab_channel=Imphenzia
+
+ML-Agents 1.0+ Creating a Mario Kart like AI
+https://www.youtube.com/watch?v=n5rY9ffqryU&t=2s&ab_channel=SebastianSchuchmann
