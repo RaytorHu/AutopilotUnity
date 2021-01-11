@@ -3,7 +3,7 @@
 This project is using Unity ML Agents package. It applies reinforcement learning techniques to train the kart and enable the kart to self-drive around the track.
 
 ### DEMO
-[![DEMO_Training](https://github.com/RaytorHu/AutopilotUnity/blob/master/images/DEMO_Training.png)](https://youtu.be/QRNAbKOJYkk)
+<a href="https://youtu.be/QRNAbKOJYkk" target="_blank"><img src="https://github.com/RaytorHu/AutopilotUnity/blob/master/images/DEMO_Training.png" /></a>
 
 ## Environment
 ### The Kart
@@ -65,11 +65,13 @@ Train the agents by letting them go clockwise. Based on the experiment above, pi
 
 Test the model by letting the agent go anticlockwise. In this case, the track is completely new to the agent. And, the agent can successfully complete a lap.
 
-[![DEMO_Validation](https://github.com/RaytorHu/AutopilotUnity/blob/master/images/DEMO_Validation.png)](https://youtu.be/dke58wgUoqI)
+<a href="https://youtu.be/dke58wgUoqI" target="_blank"><img src="https://github.com/RaytorHu/AutopilotUnity/blob/master/images/DEMO_Validation.png" /></a>
 
 ## Reference
 Low Poly Racing
+
 https://www.youtube.com/watch?v=MkOGlTTvaWU&ab_channel=Imphenzia
 
 ML-Agents 1.0+ Creating a Mario Kart like AI
+
 https://www.youtube.com/watch?v=n5rY9ffqryU&t=2s&ab_channel=SebastianSchuchmann
